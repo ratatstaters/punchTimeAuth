@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	.container
+		span(id="counter")
+		form(action="/auth", method="POST", name="auth")
+			p
+				input(type="text", name="_username", id="username", placeholder="username")
+			p
+				input(type="password", name="_password", id="password", placeholder="password")
+			p
+				input(type="hidden", name="_csrf", value=csrfToken)
+			p
+				button(type="submit", id="authBtn") authenticate

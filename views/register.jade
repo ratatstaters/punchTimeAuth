@@ -1,0 +1,21 @@
+extends rLayout
+
+block content
+
+	.container
+		form()
+			p
+				input(type="text", name="_username", id="username", placeholder="username")
+			p
+				input(type="text", name="_email", id="email", placeholder="email")
+			p
+				input(type="password", name="_password", id="password", placeholder="password")
+			p
+				input(type="hidden", name="_csrf", value=csrfToken)
+			p
+				password seed:
+				span(id="counter") 0
+				/5
+				span(id="hint")
+			p
+				button(type="submit", id="submit") submit
