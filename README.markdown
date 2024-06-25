@@ -1,5 +1,5 @@
 ## punchTimeAuth
- On registration, the user will need to enter a password multiple times to generate a “digital signature.” This signature consists of confidence intervals for time differences between keystrokes that will be used on login to authenticate the user.
+ On registration, the user will need to enter a password multiple times to generate a “digital signature.” This signature consists of confidence intervals for time differences between keystrokes that will be used on login to authenticate the user, a human free factor authetication.
 
  An outlier­based based approach was used, because it yielded the best results during our “product testing.”
 The method is as follows: observations from registration are used to create boundaries outside which the particular time difference is called an outlier. Then, if over 10% of these time differences are called outliers, login is refused. These boundaries are (Q1­4*IQR, Q3+4*IQR), where Q1 and Q3 are the first and third quartiles of the particular time difference, and IQR is the average interquartile range over all time differences. The quartiles were calculated using the seventh quantile method described in [Hyndman and Fan](https://www.amherst.edu/media/view/129116/original/Sample%2BQuantiles.pdf). This is the default used by R and S.
